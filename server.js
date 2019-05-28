@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const express = require('express');
+const path = require('path');
 const app =express();
 app.use(express.json());
 const courses = [
@@ -8,7 +9,7 @@ const courses = [
     {id: 3 , name: 'Course3'}
 ];
 app.get('/', (req, res)=>{
-    res.send("Hello World of Saurav");
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/api/courses', (req, res)=>{
